@@ -11,6 +11,10 @@ import './script/component/sidebar/sidebar-list.js';
 
 import 'regenerator-runtime';
 import "bootstrap/dist/css/bootstrap.min.css";
+
+//Footer
+import './script/component/footer/footer-menu.js';
+
 import main from './script/views/main.js';
 
 main();
