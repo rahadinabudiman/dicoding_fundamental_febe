@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raha - Movie List</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/oslogo.png">
+    <title>R4HAFLIX - Find Your Happiness</title>
 </head>
 
 
@@ -13,36 +14,28 @@
     <app-bar></app-bar>
 
     <main class="container">
-        <header-carousel></header-carousel>
+        <header-jumbotron></header-jumbotron>
 
         <section class="row mb-2">
-            <div class="col-sm-12 col-md-3">
-                <h5 class="pt-1">Category :</h5>
+            <div class="col-sm-10 col-md-2">
+                <h5 class="pt-2">R4HAFLIX</h5>
             </div>
             <div class="col-sm-12 col-md-9">
                 <div class="row">
                     <div class="col-sm-12 col-md-7">
-                        <h2>Trending</h2>
+                        <h2>Recomended For You</h2>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="row">
-            <div class="d-none d-md-block col-3">
-                <div class="d-flow-root">
-                    <a href="javascript:void(0)" id="clearFilter" class="text-filter float-right">Clear filter</a>
-                </div>
-                <hr>
-                <movie-category></movie-category>
-                <card-author></card-author>
+            <div class="d-none d-md-block col-2">
+                <side-bar></side-bar>
             </div>
-            <div class="col-sm-12 col-md-9">
-                <movie-list></movie-list>
+            <div class="col-sm-12 col-md-10">
+                <!-- <movie-list></movie-list> -->
                 <trending-list></trending-list>
-                <div id="loader-text" class="loader loader-default is-active" style="display: none;">
-                    <div class="loader-message">Loading</div>
-                </div>
             </div>
         </section>
     </main>

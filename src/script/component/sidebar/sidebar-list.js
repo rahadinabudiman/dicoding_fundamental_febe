@@ -1,4 +1,6 @@
-class MovieCategory extends HTMLElement {
+import DataSidebar from '../../data/sidebar.json';
+
+class SideBar extends HTMLElement {
     connectedCallback() {
         this.render();
     }
@@ -13,24 +15,17 @@ class MovieCategory extends HTMLElement {
     }
 
     render() {
-        this.innerHTML = `
-        <div class="d-flow-root mt-4">
-            <a class="nav-link text-black active" href="#" id="nowPlaying">Now Playing</a>
-        </div>
-        <div class="d-flow-root mt-4">
-            <a class="nav-link text-black" href="#" id="popular">Popular</a>
-        </div>
-        <div class="d-flow-root mt-4">
-            <a class="nav-link text-black" href="#" id="trending">Trending</a>
-        </div>
-        <div class="d-flow-root mt-4">
-            <a class="nav-link text-black" href="#" id="topRated">Top Rated</a>
-        </div>
-        <div class="d-flow-root mt-4">
-            <a class="nav-link text-black" href="#" id="upcoming">Upcoming</a>
-        </div>
-        `;
+        let HTMLContent = '';
 
+        // JSON Sidebar
+        DataSidebar.category.map((category) => {
+            HTMLContent += `
+            <div class="d-flow-root mt-4">
+                <a class="nav-link text-black" href="#" id="${category.id}">${category.name}</a>
+            </div>
+            `;
+        });
+        this.innerHTML = HTMLContent;
         const navLinks = this.querySelectorAll("section.row .d-none .d-flow-root .nav-link");
 
         navLinks.forEach((tabItem) => {
@@ -50,4 +45,4 @@ class MovieCategory extends HTMLElement {
     }
 }
 
-customElements.define('movie-category', MovieCategory);
+customElements.define('side-bar', SideBar);

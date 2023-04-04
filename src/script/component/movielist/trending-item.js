@@ -18,7 +18,7 @@ class Trending extends HTMLElement {
             }
 
             .card img.card-img {
-                height: 220px;
+                height: 250px;
                 object-fit: cover;
                 border-radius: 1rem;
             }

@@ -12,7 +12,8 @@ class TrendingList extends HTMLElement {
         this.className = "row row-cols-1 row-cols-sm-2 row-cols-md-6";
         this._items.forEach(item => {
             const trendingItemElement = document.createElement('trending-item');
-            trendingItemElement.trending = item; this.appendChild(trendingItemElement);
+            trendingItemElement.trending = item;
+            this.appendChild(trendingItemElement);
         });
     }
 }

@@ -1,15 +1,17 @@
-import '../component/movie-list.js';
-import '../component/trending-list.js';
-import '../component/search-bar.js';
+import '../component/movielist/movie-list.js';
+import '../component/movielist/trending-list.js';
+import '../component/header/search-bar.js';
 import DataSource from '../data/data-source.js';
 import APIConfig from '../data/api-config.js';
+import sidebar from '../data/sidebar.json';
+
 
 const main = () => {
 
   const searchElement = document.querySelector('search-bar');
   const clubListElement = document.querySelector('movie-list');
   const TrendingListElement = document.querySelector('trending-list');
-  const MovieCategoryListElement = document.querySelector('movie-category');
+  const MovieCategoryListElement = document.querySelector('side-bar');
 
   // GET Trending List
   const getTrendingList = async () => {
@@ -26,6 +28,7 @@ const main = () => {
     }
   }
 
+  // get Movie List
   const getMovieList = async (target) => {
     try {
       const response = await fetch(target);
@@ -42,6 +45,12 @@ const main = () => {
 
   const onButtonSearchClicked = () => {
     searchClub(searchElement.value);
+    const titleMovie = document.querySelector("section.row .col-sm-12 .row .col-sm-12");
+    if (searchElement.value == "") {
+      titleMovie.innerHTML = "<h2>Search Result</h2>";
+    } else {
+      titleMovie.innerHTML = `<h2>${searchElement.value} : Search Result</h2>`;
+    }
   };
 
   // get List Movie from Search Bar
@@ -60,14 +69,21 @@ const main = () => {
   // get Movie from Category Select
   const categorySelect = () => {
     const category = MovieCategoryListElement.value;
-    switch (category) {
-      case 'nowPlaying': getMovieList(APIConfig.nowPlaying); break;
-      case 'trending': getMovieList(APIConfig.trending); break;
-      case 'popular': getMovieList(APIConfig.popular); break;
-      case 'topRated': getMovieList(APIConfig.topRated); break;
-      case 'upcoming': getMovieList(APIConfig.upcoming); break;
+    const titleMovie = document.querySelector("section.row .col-sm-12 .row .col-sm-12");
+    const selectedCategory = sidebar.category.find(item => item.id === category);
+    if (selectedCategory) {
+      const categoryName = selectedCategory.name;
+      const apiConfig = APIConfig[selectedCategory.id];
+      if (apiConfig) {
+        getMovieList(apiConfig);
+        titleMovie.innerHTML = `<h2>${categoryName} Movies</h2>`;
+      } else {
+        showResponseMessage("Invalid API configuration");
+      }
     }
-  }
+  };
+
+
 
   const showResponseMessage = message => {
     console.log(message);

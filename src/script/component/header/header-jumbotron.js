@@ -1,6 +1,6 @@
 import "./search-bar.js";
 
-class HedaerCarousel extends HTMLElement {
+class HeaderJumbotron extends HTMLElement {
     connectedCallback() {
         this.render();
     }
@@ -22,4 +22,4 @@ class HedaerCarousel extends HTMLElement {
     }
 }
 
-customElements.define("header-carousel", HedaerCarousel);
+customElements.define("header-jumbotron", HeaderJumbotron);
