@@ -35,24 +35,39 @@ class Trending extends HTMLElement {
                 font-size: 0.7rem;
             }
 
-            .icon-svg {
-                width: 11px;
-                margin-top: -3px;
+            .card-img-top {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .btn {
+                z-index: 1;
+            }
+            
+            .position-relative {
+                position: relative;
+            }
+            
+            .position-absolute {
+                position: absolute;
             }
         </style>
         <div class="col mb-4">
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-anchor=".jumbotron">
-                <div class="card card-receipe" data-id="${this._item.id}">
-                    <img src="https://image.tmdb.org/t/p/w500${this._item.poster_path}" class="card-img card-img-top" alt="${this._item.original_title}" />
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate">${this._item.original_title}</h5>
-                        <p class="card-text">
-                            <span class="float-left">${this._item.release_date}</span>
-                        </p>
-                    </div>
-                </div>
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-anchor=".jumbotron">
+        <div class="card" data-id="${this._item.id}">
+            <div class="position-relative">
+                <img src="https://image.tmdb.org/t/p/w500${this._item.poster_path}" class="card-img card-img-top" alt="${this._item.original_title}" />
+                <span class="position-absolute top-0 end-0 m-2 badge bg-danger">${this._item.vote_average}</span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-truncate">${this._item.original_title}</h5>
+                <p class="card-text">
+                    <span class="float-left">${this._item.release_date}</span>
+                </p>
             </div>
         </div>
+    </div>
+</div>
     `;
     }
 }
