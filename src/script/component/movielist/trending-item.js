@@ -55,7 +55,7 @@ class Trending extends HTMLElement {
             }
         </style>
         <div class="col mb-4">
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-anchor=".jumbotron">
+            <div>
                 <div class="card card-movie" data-id="${this._item.id}">
                     <div class="position-relative">
                         <img src="https://image.tmdb.org/t/p/w500${this._item.poster_path}" class="card-img card-img-top" alt="${this._item.original_title}" />
@@ -83,7 +83,7 @@ class Trending extends HTMLElement {
 
         // Callback success
         const renderResult = results => {
-            alert(`${results.original_title}\n${results.overview}`);
+            alert(`Title : ${results.original_title}\n\nOverview :${results.overview}`);
         };
 
 
@@ -97,8 +97,7 @@ class Trending extends HTMLElement {
         movieCard.addEventListener("click", function () {
             const idMovieCard = this.getAttribute("data-id");
             detailMovie(idMovieCard);
-        })
-
+        });
     }
 }
 

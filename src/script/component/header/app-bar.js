@@ -28,18 +28,15 @@ class AppBar extends HTMLElement {
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Github</a>
+                        </li>
                         <li class="nav-item d-sm-none d-md-none d-lg-block">
                             <a class="nav-link" href="#">
                             <i class="fa-solid fa-user"></i>
                             </a>
                         </li>
                     </ul>
-                    <div class="navbar-action d-sm-none d-md-none d-lg-block">
-                        <button type="button" class="btn rounded-pill">Log in</button>
-                        <button type="button" class="btn btn-dark rounded-pill">
-                            Sign Up
-                        </button>
-                    </div>
                 </div>
             </nav>
         </header>`;
