@@ -9,7 +9,7 @@ import sidebar from '../data/sidebar.json';
 const main = () => {
 
   const searchElement = document.querySelector('search-bar');
-  const clubListElement = document.querySelector('movie-list');
+  const movieListElement = document.querySelector('movie-list');
   const TrendingListElement = document.querySelector('trending-list');
   const MovieCategoryListElement = document.querySelector('side-bar');
 
@@ -44,7 +44,7 @@ const main = () => {
   }
 
   const onButtonSearchClicked = () => {
-    searchClub(searchElement.value);
+    searchMovie(searchElement.value);
     const titleMovie = document.querySelector("section.row .col-sm-12 .row .col-sm-12");
     if (searchElement.value == "") {
       titleMovie.innerHTML = "<h2>Search Result</h2>";
@@ -54,12 +54,12 @@ const main = () => {
   };
 
   // get List Movie from Search Bar
-  const searchClub = async (keyword) => {
+  const searchMovie = async (keyword) => {
     try {
       if (!keyword) {
         keyword = "Harry Potter";
       }
-      const result = await DataSource.searchClub(keyword);
+      const result = await DataSource.searchMovie(keyword);
       renderResult(result);
     } catch (message) {
       fallbackResult(message)
@@ -98,7 +98,7 @@ const main = () => {
   };
 
   const fallbackResult = message => {
-    clubListElement.renderError(message);
+    movieListElement.renderError(message);
   };
 
   MovieCategoryListElement.clickEvent = categorySelect;

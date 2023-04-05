@@ -10,11 +10,9 @@ class AppBar extends HTMLElement {
     <header class="container my-3">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a class="navbar-brand" href="#">
-                  Rahadina Budiman Sundara
+                    R4HAFLIX
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
@@ -22,7 +20,7 @@ class AppBar extends HTMLElement {
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category</a>
+                            <a class="nav-link" href="#sidebar">Category</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Movies</a>
