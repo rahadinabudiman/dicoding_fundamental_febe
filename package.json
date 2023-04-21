@@ -4,7 +4,7 @@
   "description": "Submission Dicoding Fundamental",
   "main": "app.js",
   "scripts": {
-    "start-dev": "webpack serve --config webpack.dev.js",
+    "start-dev": "webpack serve --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js"
   },
   "author": "Rahadina Budiman Sundara",
